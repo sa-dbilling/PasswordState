@@ -102,7 +102,7 @@ function New-PasswordStatePassword {
 
     if ($null -ne $Password) {
         $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Password)
-        $unsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+        $unsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($BSTR)
         $request | Add-Member -MemberType NoteProperty -Name Password -Value $unsecurePassword
     }
 
